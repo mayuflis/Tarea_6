@@ -18,19 +18,22 @@ export class HomeComponent {
 
   //Se establece por defecto la carga de la página una
   async ngOnInit() {
-    this.objet = await this.servicesUser.getAll(this.page);
-    this.listusers = this.objet.results;
+    try {
+      this.objet = await this.servicesUser.getAll(this.page);
+      this.listusers = this.objet.results;
+    } catch (error) {
+      alert('Error al cargar la lista de usuarios');
+    }
   }
 
   //Método que carga el númro de la página
   async setPagina(pag: number) {
     this.objet = await this.servicesUser.getAll(pag);
-    if(this.objet.page){
+    if (this.objet.page) {
       this.listusers = this.objet.results;
-    }else{
-      alert("Error al cargar la página")
+    } else {
+      alert('Error al cargar la página');
     }
-    
   }
   getListUser() {
     return this.listusers;

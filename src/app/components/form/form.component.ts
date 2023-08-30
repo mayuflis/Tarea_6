@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Users } from 'src/app/interfaces/user.interfaces';
 import { UsersService } from 'src/app/services/users.service';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -13,8 +13,9 @@ export class FormComponent {
   private servicesUser = inject(UsersService);
   private response!: Users;
   private router = inject(Router);
-  private activatedRoute=inject(ActivatedRoute)
-  private estado:boolean=false;
+  private activatedRoute = inject(ActivatedRoute);
+  private estado: boolean = false;
+
   constructor() {
     this.formUser = new FormGroup(
       {
@@ -43,15 +44,21 @@ export class FormComponent {
     );
   }
 
-  getEstado():boolean{
+  getForm(): FormGroup {
+    return this.formUser;
+  }
+  getEstado(): boolean {
     return this.estado;
   }
 
-  ngOnInit(){
-    this.activatedRoute.params.subscribe(async(params:any)=>{
-      const _id:string=params._id;
-      this.response=await this.servicesUser.getUpdateUser(_id,this.formUser.value);
-      if(this.response._id && !this.estado){
+  ngOnInit() {
+    this.activatedRoute.params.subscribe(async (params: any) => {
+      const _id: string = params._id;
+      this.response = await this.servicesUser.getUpdateUser(
+        _id,
+        this.formUser.value
+      );
+      if (this.response._id && !this.estado) {
         this.formUser = new FormGroup(
           {
             _id: new FormControl(this.response._id, []),
@@ -77,33 +84,31 @@ export class FormComponent {
           },
           []
         );
-      }else{
-        this.estado=true;
+      } else {
+        this.estado = true;
       }
-      
-    })
-  }
-  getForm(): FormGroup {
-    return this.formUser;
+    });
   }
 
   async getDataForm() {
-    if(this.estado){
-      this.response = await this.servicesUser.getCreateUser(this.formUser.value);
-      console.log(this.formUser.value.name)
-      if (this.response) {
+    if (this.estado) {
+      this.response = await this.servicesUser.getCreateUser(
+        this.formUser.value
+      );
+      console.log(this.formUser.value.name);
+      if (this.response._id) {
         console.log(this.response);
         alert('El Usuario se ha insertado correctamente');
         this.router.navigate(['/home']);
-      }else{
-        alert("Ha habido un problema al insertar al usuario")
+      } else {
+        alert('Ha habido un problema al insertar al usuario');
       }
-    }else{
-      console.log(this.response)
-      alert("el usuario ha sido actualizado");
+    } else {
+      console.log(this.response);
+      alert('el usuario ha sido actualizado');
       this.router.navigate(['/home']);
     }
-   
+
     this.formUser.reset();
   }
 
@@ -113,6 +118,4 @@ export class FormComponent {
       ? true
       : false;
   }
-
-  
 }

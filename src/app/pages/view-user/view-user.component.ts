@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User, Users } from 'src/app/interfaces/user.interfaces';
 
 @Component({
@@ -13,16 +13,18 @@ export class ViewUserComponent {
   private activatedRoute = inject(ActivatedRoute);
   user: Users | any;
   private response: Users | any;
-  private router=inject(Router)
-  
-  constructor() {}
+  private router = inject(Router);
 
+  constructor() {}
+ 
   ngOnInit() {
     this.activatedRoute.params.subscribe(async (params: any) => {
       const _id: string = params._id;
-      this.user = await this.servicesUser.getById(_id);
-      
-
+      try {
+        this.user = await this.servicesUser.getById(_id);
+      } catch (error) {
+        alert('Error al cargar el usuario');
+      }
     });
   }
   async delete(id: string): Promise<void> {
@@ -31,14 +33,12 @@ export class ViewUserComponent {
       `Estás seguro de borrar al usuario ${this.user.first_name}`
     );
     this.response = await this.servicesUser.getDeleteUser(id);
-    if(this.response._id && estado){
+    if (this.response._id && estado) {
       console.log(this.response);
-      alert("El usuario ha sido borrado");
+      alert('El usuario ha sido borrado');
       this.router.navigate(['/home']);
-    }else if(!this.response && estado){
-      alert("Error al borrar al usuario")
-      
+    } else if (!this.response && estado) {
+      alert('Error al borrar al usuario');
     }
-    
   }
 }
