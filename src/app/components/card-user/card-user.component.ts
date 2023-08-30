@@ -28,7 +28,7 @@ export class CardUserComponent {
       `Estás seguro de borrar al usuario ${nombre}`
     );
     this.response = await this.servicesUser.getDeleteUser(id);
-    if (this.response && estado) {
+    if (this.response._id && estado) {
       console.log(this.response);
       alert('El usuario ha sido borrado');
       this.router.navigate(['/home']);
