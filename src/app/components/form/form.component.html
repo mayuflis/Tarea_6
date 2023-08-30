@@ -1,0 +1,40 @@
+<section class="container mt-5">
+    <div *ngIf="getEstado(); then contentTrue else contentFalse"></div>
+    <ng-template #contentTrue>
+      <h2>NUEVO USUARIO</h2>  
+    </ng-template>
+    <ng-template #contentFalse>
+        <h2>ACTUALIZAR USUARIO</h2>  
+      </ng-template>
+    
+    <form [formGroup]="getForm()" (ngSubmit)="getDataForm()" >
+        <div class="mt-3">
+            <label class="form-label" for="name">Nombre Usuario</label>
+            <input class="form-control" type="text" id="name" formControlName="name">
+            <p class="error" *ngIf="checkControlForm('name','required')">El campo es requerido</p>
+            <p class="error" *ngIf="checkControlForm('name','minlength')">El nombre ha de contener tres caracteres</p>
+        </div>
+        <div class="mt-3">
+            <label class="form-label" for="last_name">Apellido Usuario</label>
+            <input class="form-control" type="text" id="last_name" formControlName="last_name">
+            <p class="error" *ngIf="checkControlForm('last_name','required')">El campo es requerido</p>
+            <p class="error" *ngIf="checkControlForm('last_name','minlength')">El apellido ha de contener dos caracteres</p>
+        </div>
+        <div class="mt-3">
+            <label class="form-label" for="email">Email Usuario</label>
+            <input class="form-control" type="email" id="email" formControlName="email" >
+            <p class="error" *ngIf="checkControlForm('email','required')">El campo es requerido</p>
+            <p class="error" *ngIf="checkControlForm('email','pattern')" >Correo no válido</p>
+        </div>
+        <div class="mt-3">
+            <label class="form-label" for="image">Imagen Usuario</label>
+            <input class="form-control" type="text" id="image" formControlName="image" >
+            <p class="error" *ngIf="checkControlForm('image','required')">El campo es requerido</p>
+            <p class="error" *ngIf="checkControlForm('image','pattern')" >Url no válida</p>
+        </div>
+        <input class="btn btn-dark mt-3" type="submit" value="Enviar" [disabled]="!getForm().valid" >
+    </form>
+</section>
+
+
+<!-- https://i.pravatar.cc/500?u=graciela.ponceabeyta@peticiones.online -->
