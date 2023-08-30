@@ -16,21 +16,21 @@ export class HomeComponent {
     this.page = 1;
   }
 
+  //Se establece por defecto la carga de la página una
   async ngOnInit() {
     this.objet = await this.servicesUser.getAll(this.page);
-    console.log(this.objet.page);
     this.listusers = this.objet.results;
-    console.log(this.listusers);
   }
 
+  //Método que carga el númro de la página
   async setPagina(pag: number) {
-    
-      this.objet = await this.servicesUser.getAll(pag);
-      console.log(this.objet);
+    this.objet = await this.servicesUser.getAll(pag);
+    if(this.objet.page){
       this.listusers = this.objet.results;
-      console.log(this.listusers);
+    }else{
+      alert("Error al cargar la página")
+    }
     
- 
   }
   getListUser() {
     return this.listusers;
