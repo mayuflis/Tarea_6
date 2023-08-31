@@ -1,29 +1,56 @@
+![logo](https://p92.hu/binaries/content/gallery/p92website/technologies/angular-overview.png)
 
---Introducción
-   Realizar un CRUD  a partir de los datos obtenidos a través de una APIFake. Estos datos hacen referncias a una lista de usuarios.
+# Aplicación con Angular consultando una API externa
 
---funcionalidades
-    Visualizar los usuarios en formato grid.
-    Poder acceder a los detalles de cada usuario.
-    Introducir nuevos usuarios.
-    Permitir la opción de borrado.
-    Actualización de usuarios.
+## Introducción
 
---Para su realización se ha procedido a crear los siguientes componentes:
-    *Pages:
-        -home: página principal de la web donde se visualiza todos los usuarios
-        -view-user: componente donde se podrá visualizar con detalles los datos del usuario
-        -not-found: componente que indica ue la página solicitada no es posible encontrarla.
+Proyecto realizado para el módulo de Angular del máster Full Stack. Se trata de realizar un CRUD a partir de los datos obtenidos desde  de una APIFake. Estos datos hacen referncias a una lista de usuarios.
+La aplicación permitirá realizar las funciones de creación, lectura, actualización y borrado de usuarios a través de consultas a la API
 
-    *Components:
-        -form: componente donde se ha creado el formulario
-        -card-user:elemento creado para la visualización de todos los usuarios.
-        -header: menú de navegación.
+## Estado del proyecto
 
---Interfaces: Se realizan dos interfaces una de tipo User para obtener todos 
-  datos  y otra de tipo Users para poder manipular el array de usuarios.
+<h4 align="center">
+:checkered_flag:Proyecto finalizado:checkered_flag:
+</h4>
 
---Servicios: Donde se realizan las diferentes peticiones a la API.
+## Funcionalidades del proyecto
 
-Los recursos obtenidos para los distintos iconos se encuentran en la carpeta assets, en ella hay un archivo .ts  de donde se obtiene las direcciones de las diferentes imágenes.
-    
+- Funcionalidad 1:Visualizar los usuarios en formato grid.
+- Funcionalidad 2:Poder acceder a los detalles de cada usuario.
+- Funcionalidad 3:Introducir nuevos usuarios.
+- Funcionalidad 4:Permitir la opción de borrado.
+- Funcionalidad 5:Actualización de usuarios.
+
+## Creación de componentes:
+
+1. __Pages:__
+    * home: página principal de la web donde se visualiza todos los usuarios
+    * view-user: componente donde se podrá visualizar con detalles los datos del usuario
+    * not-found: componente que indica que la página solicitada no es posible encontrarla.
+
+2. __Components:__
+    * form: componente donde se ha creado el formulario
+    * card-user:elemento creado para la visualización de todos los usuarios.
+    * header: menú de navegación.
+
+3. __Interfaces:__
+    * User para recuperar todos los datos.
+    * Users para poder manipular el array de usuarios.
+
+4.  __Servicios:__
+    * Donde se realizan las diferentes peticiones a la API.
+
+
+## Instalación
+
+    1. Colnar el proyecto.
+    2. Dirigite a la carpeta del proyecto a través del comando cd tarea_6.
+    3. Inserta en la terminal npm install.
+    4. Levanta el servido de ámbito local mediante el comando ng s
+
+## Tecnología
+- Angular  versión 16.1.8
+
+## Autor
+ <img src="https://avatars.githubusercontent.com/u/34077770?v=4 " width:120px  height:120px><br><sub>Sergio Vélez Díaz</sub>
+
