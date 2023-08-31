@@ -15,11 +15,11 @@ La aplicación permitirá realizar las funciones de creación, lectura, actualiz
 
 ## Funcionalidades del proyecto
 
-- Funcionalidad 1:Visualizar los usuarios en formato grid.
-- Funcionalidad 2:Poder acceder a los detalles de cada usuario.
-- Funcionalidad 3:Introducir nuevos usuarios.
-- Funcionalidad 4:Permitir la opción de borrado.
-- Funcionalidad 5:Actualización de usuarios.
+- Funcionalidad 1: visualizar los usuarios en formato grid.
+- Funcionalidad 2: poder acceder a los detalles de cada usuario.
+- Funcionalidad 3: introducir nuevos usuarios.
+- Funcionalidad 4: permitir la opción de borrado.
+- Funcionalidad 5: actualización de usuarios.
 
 ## Creación de componentes:
 
@@ -43,7 +43,7 @@ La aplicación permitirá realizar las funciones de creación, lectura, actualiz
 
 ## Instalación
 
-    1. Colnar el proyecto.
+    1. Clonar el proyecto.
     2. Dirigite a la carpeta del proyecto a través del comando cd tarea_6.
     3. Inserta en la terminal npm install.
     4. Levanta el servido de ámbito local mediante el comando ng s
