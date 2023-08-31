@@ -46,7 +46,7 @@ La aplicación permitirá realizar las funciones de creación, lectura, actualiz
     1. Clonar el proyecto.
     2. Dirigite a la carpeta del proyecto a través del comando cd tarea_6.
     3. Inserta en la terminal npm install.
-    4. Levanta el servido de ámbito local mediante el comando ng s
+    4. Levanta el servidor de ámbito local mediante el comando ng s
 
 ## Tecnología
 - Angular  versión 16.1.8

@@ -33,6 +33,6 @@
             <p class="error" *ngIf="checkControlForm('image','required')">El campo es requerido</p>
             <p class="error" *ngIf="checkControlForm('image','pattern')">Url no válida</p>
         </div>
-        <input class="btn btn-dark mt-3" type="submit" value="Enviar" [disabled]="!getForm().valid">
+        <input class="btn btn-dark mt-3" type="submit" value="{{getBtnTeexto()}} " [disabled]="!getForm().valid">
     </form>
 </section>

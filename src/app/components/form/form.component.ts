@@ -15,7 +15,7 @@ export class FormComponent {
   private router = inject(Router);
   private activatedRoute = inject(ActivatedRoute);
   private estado: boolean = false;
-
+  private btnTexto:string="";
   constructor() {
     this.formUser = new FormGroup(
       {
@@ -50,9 +50,14 @@ export class FormComponent {
   getEstado(): boolean {
     return this.estado;
   }
+  getBtnTeexto():string{
+    return (this.estado) ? this.btnTexto="Guardar" : this.btnTexto="Actualizar"
+   
+  }
 
   //Método que realiza la actualización del usuario siempre y cuando la ruta  contenfa el parámetro _id
   ngOnInit() {
+    
     this.activatedRoute.params.subscribe(async (params: any) => {
       const _id: string = params._id;
       this.response = await this.servicesUser.getUpdateUser(_id,this.formUser.value);
@@ -90,7 +95,7 @@ export class FormComponent {
 
   //Método que realiza la actualización o la creación de usuario en función del estado.
   async getDataForm() {
-    console.log(this.estado)
+   
     if (this.estado) {
       this.response = await this.servicesUser.getCreateUser( this.formUser.value );
       if (this.response.id) {
