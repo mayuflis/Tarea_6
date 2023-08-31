@@ -1,19 +1,19 @@
 <div class="card shadow">
 
-    <img class="image w-75 " src="{{listUsers?.image}} " alt="">
+    <img class="image w-75 " src="{{getListUsers()?.image}} " alt="Imagen del usuario">
 
-    <p class="text-center">{{listUsers?.first_name}} {{listUsers?.last_name}} </p>
+    <p class="text-center">{{getListUsers()?.first_name}} {{getListUsers()?.last_name}} </p>
     <div class="flex">
-        <div class="flex__items" [routerLink]="['/user',listUsers?._id]">
-            <a class="  iconos"><img class=" imagenes" src="{{iconoBuscar}}" alt="iconoBuscar"> </a>
+        <div class="flex__items" [routerLink]="['/user',getListUsers()?._id]">
+            <a class="  iconos"><img class=" imagenes" src="{{getIconoBuscar()}}" alt="iconoBuscar"> </a>
             <p class="iconos">Ver detalles</p>
         </div>
-        <div class="flex__items" [routerLink]="['/uptadeuser',listUsers?._id]">
-            <a class="  iconos"><img class=" imagenes" src="{{iconoActualizar}}" alt="iconoActualizar"> </a>
+        <div class="flex__items" [routerLink]="['/uptadeuser',getListUsers()?._id]">
+            <a class="  iconos"><img class=" imagenes" src="{{getIconoActualizar()}}" alt="iconoActualizar"> </a>
             <p class="iconos">Actualizar</p>
         </div>
-        <div class="flex__items" (click)="delete(listUsers?._id, listUsers?.first_name)" >
-            <a class="  iconos"><img class="imagenes " src="{{iconoEliminar}}" alt="iconoEliminar"> </a>
+        <div class="flex__items" (click)="delete(getListUsers()?._id, getListUsers()?.first_name)" >
+            <a class="  iconos"><img class="imagenes " src="{{getIconoBorrar()}}" alt="iconoEliminar"> </a>
             <p class="iconos">Borrar</p>
         </div>
 

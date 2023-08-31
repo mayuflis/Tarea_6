@@ -1,16 +1,16 @@
 <section class="contenedor mt-5">
     <div class="row flex">
         <div class="flex__imagen ">
-            <img class="imagen__img" src="{{user?.image}} " alt="Imagen del usuario">
+            <img class="imagen__img" src="{{getUser()?.image}} " alt="Imagen del usuario">
         </div>
         <div class="flex_datos">
-            <h4>{{user?.first_name}} </h4>
-            <h4>{{user?.last_name}} </h4>
-            <p><span class="fw-bold">Nombre de Usuario:</span> {{user?.first_name}} </p>
-            <p><span class="fw-bold">Email: </span>{{user?.email}} </p>
+            <h4>{{getUser()?.first_name}} </h4>
+            <h4>{{getUser()?.last_name}} </h4>
+            <p><span class="fw-bold">Nombre de Usuario:</span> {{getUser()?.first_name}} </p>
+            <p><span class="fw-bold">Email: </span>{{getUser()?.email}} </p>
             <div class="mt-3 flex__btn">
-                <a class="btn btn-dark mx-2" (click)="delete(user?._id)" >Eliminar</a>
-                <a class="btn btn-dark mx-2" [routerLink]="['/uptadeuser',user?._id]">Actualizar</a>
+                <a class="btn btn-dark mx-2" (click)="delete(getUser()?._id)" >Eliminar</a>
+                <a class="btn btn-dark mx-2" [routerLink]="['/uptadeuser',getUser()?._id]">Actualizar</a>
                 <a class="btn btn-dark mx-2" [routerLink]="['/home']">Volver al listado</a>
             </div>
         </div>

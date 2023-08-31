@@ -51,13 +51,12 @@ export class FormComponent {
     return this.estado;
   }
 
+  //Método que realiza la actualización del usuario siempre y cuando la ruta  contenfa el parámetro _id
   ngOnInit() {
     this.activatedRoute.params.subscribe(async (params: any) => {
       const _id: string = params._id;
-      this.response = await this.servicesUser.getUpdateUser(
-        _id,
-        this.formUser.value
-      );
+      this.response = await this.servicesUser.getUpdateUser(_id,this.formUser.value);
+        
       if (this.response._id && !this.estado) {
         this.formUser = new FormGroup(
           {
@@ -73,9 +72,8 @@ export class FormComponent {
             ]),
             email: new FormControl(this.response.email, [
               Validators.required,
-              Validators.pattern(
-                /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-              ),
+              Validators.pattern(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/),
+                
             ]),
             image: new FormControl(this.response.image, [
               Validators.required,
@@ -90,13 +88,12 @@ export class FormComponent {
     });
   }
 
+  //Método que realiza la actualización o la creación de usuario en función del estado.
   async getDataForm() {
+    console.log(this.estado)
     if (this.estado) {
-      this.response = await this.servicesUser.getCreateUser(
-        this.formUser.value
-      );
-      console.log(this.formUser.value.name);
-      if (this.response._id) {
+      this.response = await this.servicesUser.getCreateUser( this.formUser.value );
+      if (this.response.id) {
         console.log(this.response);
         alert('El Usuario se ha insertado correctamente');
         this.router.navigate(['/home']);

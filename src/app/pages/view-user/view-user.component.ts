@@ -11,12 +11,16 @@ import { User, Users } from 'src/app/interfaces/user.interfaces';
 export class ViewUserComponent {
   private servicesUser = inject(UsersService);
   private activatedRoute = inject(ActivatedRoute);
-  user: Users | any;
+  private user: Users | any;
   private response: Users | any;
   private router = inject(Router);
 
   constructor() {}
- 
+
+  getUser(): Users | any {
+    return this.user;
+  }
+  //Carga la vista  detalles del usuario designado
   ngOnInit() {
     this.activatedRoute.params.subscribe(async (params: any) => {
       const _id: string = params._id;
@@ -27,6 +31,7 @@ export class ViewUserComponent {
       }
     });
   }
+  //Método que realiza el borrado del usuario
   async delete(id: string): Promise<void> {
     let estado: boolean = false;
     estado = confirm(

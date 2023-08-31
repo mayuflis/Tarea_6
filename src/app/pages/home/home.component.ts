@@ -16,6 +16,10 @@ export class HomeComponent {
     this.page = 1;
   }
 
+  getListUser() {
+    return this.listusers;
+  }
+
   //Se establece por defecto la carga de la página una
   async ngOnInit() {
     try {
@@ -26,7 +30,7 @@ export class HomeComponent {
     }
   }
 
-  //Método que carga el númro de la página
+  //Método que carga el número de la página
   async setPagina(pag: number) {
     this.objet = await this.servicesUser.getAll(pag);
     if (this.objet.page) {
@@ -34,8 +38,5 @@ export class HomeComponent {
     } else {
       alert('Error al cargar la página');
     }
-  }
-  getListUser() {
-    return this.listusers;
   }
 }

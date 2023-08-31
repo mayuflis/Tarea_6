@@ -1,6 +1,6 @@
 
 --Introducción
-   Realizar un CRUD de los datos obtenidos a partir de los datos obtenidos a través de una APIFake. Estos datos hace referncia a una lista de usuarios.
+   Realizar un CRUD  a partir de los datos obtenidos a través de una APIFake. Estos datos hacen referncias a una lista de usuarios.
 
 --funcionalidades
     Visualizar los usuarios en formato grid.
