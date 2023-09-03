@@ -5,6 +5,7 @@
 ## Introducción
 
 Proyecto realizado para el módulo de Angular del máster Full Stack. Se trata de realizar un CRUD a partir de los datos obtenidos desde  de una APIFake. Estos datos hacen referncias a una lista de usuarios.
+
 La aplicación permitirá realizar las funciones de creación, lectura, actualización y borrado de usuarios a través de consultas a la API
 
 ## Estado del proyecto
