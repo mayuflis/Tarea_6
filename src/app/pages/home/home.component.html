@@ -1,25 +1,20 @@
-<main>
+<section class="container mt-4">
+    <div class="row g-3">
+        <article class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let usuario of getListUser()">
+            <app-card-user [listUsers]="usuario"></app-card-user>
 
+        </article>
+    </div>
 
-    <section class="container mt-4">
-        <div class="row g-3">
-            <article class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let usuario of getListUser()">
-                <app-card-user [listUsers]="usuario"></app-card-user>
+</section>
 
-            </article>
-        </div>
+<div class="mt-4 mb-4">
+    <nav aria-label="Page navigation example ">
+        <ul class="pagination justify-content-center">
 
-    </section>
+            <li class="page-item w-25"><a class="page-link text-center" (click)="setPagina(1)">1</a></li>
+            <li class="page-item w-25"><a class="page-link text-center" (click)="setPagina(2)">2</a></li>
 
-    <footer class="mt-4 mb-4">
-        <nav aria-label="Page navigation example ">
-            <ul class="pagination justify-content-center">
-
-                <li class="page-item w-25"><a class="page-link text-center" (click)="setPagina(1)">1</a></li>
-                <li class="page-item w-25"><a class="page-link text-center" (click)="setPagina(2)">2</a></li>
-
-            </ul>
-        </nav>
-    </footer>
-
-</main>
+        </ul>
+    </nav>
+</div>
